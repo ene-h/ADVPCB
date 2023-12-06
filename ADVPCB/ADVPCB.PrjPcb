@@ -66,6 +66,23 @@ GenerateClassCluster=0
 DocumentUniqueId=KZCSYQUI
 
 [Document2]
+DocumentPath=C:\Users\eneas\Desktop\Thomas_More\Componenten\LED_SSL-LX4673GD-LA20.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=ERCRRKGY
+
+[Document3]
 DocumentPath=C:\Users\eneas\Desktop\Thomas_More\Componenten\SN74LVC1GU04DBVR\AltiumDesigner\SN74LVC1GU04DBVR.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -82,7 +99,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PERMJTKL
 
-[Document3]
+[Document4]
 DocumentPath=C:\Users\eneas\Desktop\Solder_bridge\PCB_Project\footprint.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -99,7 +116,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GQGYFXEU
 
-[Document4]
+[Document5]
 DocumentPath=..\KLPX_0848A_2_B\AltiumDesigner\KLPX-0848A-2-B.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -116,7 +133,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TCOXBYAW
 
-[Document5]
+[Document6]
 DocumentPath=C:\Users\eneas\Desktop\Thomas_More\Componenten\SN74LVC1GU04DBVR\AltiumDesigner\SN74LVC1GU04DBVR.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -133,7 +150,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GYRJOJYD
 
-[Document6]
+[Document7]
 DocumentPath=C:\Users\eneas\Desktop\Solder_bridge\PCB_Project\schematic.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -150,7 +167,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=DGHEFMHV
 
-[Document7]
+[Document8]
 DocumentPath=..\KLPX_0848A_2_B\AltiumDesigner\KLPX-0848A-2-B.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -167,7 +184,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=EIXHQFSP
 
-[Document8]
+[Document9]
 DocumentPath=Schlib1.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -1143,12 +1160,42 @@ SelectedOnly=1
 UpdateVariants=1
 UpdateToLatestRevision=1
 PartTypes=0
-ComponentLibIdentifierKind0=Library Name And Type
-ComponentLibraryIdentifier0=Schlib1.SchLib
-ComponentDesignItemID0=Inverter1
-ComponentSymbolReference0=Inverter1
+ComponentLibIdentifierKind0=Any
+ComponentLibraryIdentifier0=
+ComponentDesignItemID0=NLSX4373DR2G
+ComponentSymbolReference0=NLSX4373DR2G
 ComponentUpdate0=1
 ComponentIsDeviceSheet0=0
+ComponentLibIdentifierKind1=Library Name And Type
+ComponentLibraryIdentifier1=KLPX-0848A-2-B.SchLib
+ComponentDesignItemID1=KLPX-0848A-2-B
+ComponentSymbolReference1=KLPX-0848A-2-B
+ComponentUpdate1=1
+ComponentIsDeviceSheet1=0
+ComponentLibIdentifierKind2=Library Name And Type
+ComponentLibraryIdentifier2=NCP115ASN330T2G.SchLib
+ComponentDesignItemID2=NCP115ASN330T2G
+ComponentSymbolReference2=NCP115ASN330T2G
+ComponentUpdate2=1
+ComponentIsDeviceSheet2=0
+ComponentLibIdentifierKind3=Library Name And Type
+ComponentLibraryIdentifier3=Schlib1.SchLib
+ComponentDesignItemID3=Inverter1
+ComponentSymbolReference3=Inverter1
+ComponentUpdate3=1
+ComponentIsDeviceSheet3=0
+ComponentLibIdentifierKind4=Library Name And Type
+ComponentLibraryIdentifier4=USB.SchLib
+ComponentDesignItemID4=USB B Fem
+ComponentSymbolReference4=USB B Fem
+ComponentUpdate4=1
+ComponentIsDeviceSheet4=0
+ComponentLibIdentifierKind5=Library Name Only
+ComponentLibraryIdentifier5=Altium Content Vault
+ComponentDesignItemID5=CMP-0243-00216-1
+ComponentSymbolReference5=MC-ARM-STM32F446-LQFP64
+ComponentUpdate5=1
+ComponentIsDeviceSheet5=0
 FullReplace=1
 UpdateDesignatorLock=1
 UpdatePartIDLock=1
@@ -1162,18 +1209,97 @@ RemoveParameters=0
 AddModels=1
 RemoveModels=1
 UpdateCurrentModels=1
-ParameterName0=Comment
+ParameterName0=Arrow Part Number
 ParameterUpdate0=1
-ParameterName1=Component Kind
+ParameterName1=Arrow Price/Stock
 ParameterUpdate1=1
-ParameterName2=Description
+ParameterName2=Comment
 ParameterUpdate2=1
-ParameterName3=Library Reference
+ParameterName3=Component Kind
 ParameterUpdate3=1
-ParameterName4=Supplier 1
+ParameterName4=ComponentLink1Description
 ParameterUpdate4=1
-ParameterName5=Supplier Part Number 1
+ParameterName5=ComponentLink1URL
 ParameterUpdate5=1
+ParameterName6=ComponentLink2Description
+ParameterUpdate6=1
+ParameterName7=ComponentLink2URL
+ParameterUpdate7=1
+ParameterName8=Copyright
+ParameterUpdate8=1
+ParameterName9=Core
+ParameterUpdate9=1
+ParameterName10=D/A Converter
+ParameterUpdate10=1
+ParameterName11=Datasheet Link
+ParameterUpdate11=1
+ParameterName12=DatasheetVersion
+ParameterUpdate12=1
+ParameterName13=Description
+ParameterUpdate13=1
+ParameterName14=FLASH Size (Prog) (kB)
+ParameterUpdate14=1
+ParameterName15=Height
+ParameterUpdate15=1
+ParameterName16=I/Os (High Current)
+ParameterUpdate16=1
+ParameterName17=Internal RAM Size (kB)
+ParameterUpdate17=1
+ParameterName18=Library Reference
+ParameterUpdate18=1
+ParameterName19=Manufacturer_Name
+ParameterUpdate19=1
+ParameterName20=Manufacturer_Part_Number
+ParameterUpdate20=1
+ParameterName21=Mfr_Name
+ParameterUpdate21=1
+ParameterName22=Mounting Technology
+ParameterUpdate22=1
+ParameterName23=Mouser Part Number
+ParameterUpdate23=1
+ParameterName24=Mouser Price/Stock
+ParameterUpdate24=1
+ParameterName25=Operating Frequency(F) (Processor speed) (MHz)
+ParameterUpdate25=1
+ParameterName26=Package Description
+ParameterUpdate26=1
+ParameterName27=Package Reference
+ParameterUpdate27=1
+ParameterName28=Packing
+ParameterUpdate28=1
+ParameterName29=RefDes
+ParameterUpdate29=1
+ParameterName30=Supplier 1
+ParameterUpdate30=1
+ParameterName31=Supplier Part Number 1
+ParameterUpdate31=1
+ParameterName32=Supply Voltage(Vcc) min (V)
+ParameterUpdate32=1
+ParameterName33=Type
+ParameterUpdate33=1
+ModelTypeGroup0=PCBLIB
+ModelTypeUpdate0=1
+ModelType0=PCBLIB
+ModelName0=KLPX-0848A-2-B_KYC
+ModelUpdate0=1
+ModelType1=PCBLIB
+ModelName1=SOIC127P600X175-8N
+ModelUpdate1=1
+ModelType2=PCBLIB
+ModelName2=STM-LQFP64_L
+ModelUpdate2=1
+ModelType3=PCBLIB
+ModelName3=STM-LQFP64_M
+ModelUpdate3=1
+ModelType4=PCBLIB
+ModelName4=STM-LQFP64_N
+ModelUpdate4=1
+ModelType5=PCBLIB
+ModelName5=TSOP-5-483-N_ONS
+ModelUpdate5=1
+ModelType6=PCBLIB
+ModelName6=UJ2BH1TH
+ModelUpdate6=1
 
 [DatabaseUpdateOptions]
 SelectedOnly=0
