@@ -1,0 +1,82 @@
+# Created by Ultra Librarian 8.3.344 Copyright © 1999-2021
+# Frank Frank, Accelerated Designs
+
+StartFootprints
+
+Footprint (Name "KLPX-0848A-2-B_KYC")
+Pad (Name "1") (Location 0, 9E-07) (Surface True) (Rotation 0) (ExpandMask 0) (ExpandPaste 0)
+PadShape (Size 107, 67) (Shape Rounded) (Layer Top)
+EndPad
+Pad (Name "2") (Location 0, -177.1653991) (Surface True) (Rotation 0) (ExpandMask 0) (ExpandPaste 0)
+PadShape (Size 59, 99) (Shape Rounded) (Layer Top)
+EndPad
+Pad (Name "S_1_H1") (Location 20, 9E-07) (HoleSize 47) (Plated 0) (Surface False) (Rotation 0) (ExpandMask -23.5) (ExpandPaste -23.5)
+PadShape (Size 47, 47) (Shape Rounded) (Layer Top)
+PadShape (Size 47, 47) (Shape Rounded) (Layer Bottom)
+EndPad
+Pad (Name "S_1_H2") (Location -20, 9E-07) (HoleSize 47) (Plated 0) (Surface False) (Rotation 0) (ExpandMask -23.5) (ExpandPaste -23.5)
+PadShape (Size 47, 47) (Shape Rounded) (Layer Top)
+PadShape (Size 47, 47) (Shape Rounded) (Layer Bottom)
+EndPad
+Pad (Name "S_2_H1") (Location 0, -157.1653991) (HoleSize 39) (Plated 0) (Surface False) (Rotation 0) (ExpandMask -19.5) (ExpandPaste -19.5)
+PadShape (Size 39, 39) (Shape Rounded) (Layer Top)
+PadShape (Size 39, 39) (Shape Rounded) (Layer Bottom)
+EndPad
+Pad (Name "S_2_H2") (Location 0, -197.1653991) (HoleSize 39) (Plated 0) (Surface False) (Rotation 0) (ExpandMask -19.5) (ExpandPaste -19.5)
+PadShape (Size 39, 39) (Shape Rounded) (Layer Top)
+PadShape (Size 39, 39) (Shape Rounded) (Layer Bottom)
+EndPad
+Line (Width 6) (Start 207, 541.4803009) (End -207, 541.4803009) (Layer Mechanical15) 
+Line (Width 6) (Start -207, 541.4803009) (End -207, -246.5196991) (Layer Mechanical15) 
+Line (Width 6) (Start -207, -246.5196991) (End 207, -246.5196991) (Layer Mechanical15) 
+Line (Width 6) (Start 207, -246.5196991) (End 207, 541.4803009) (Layer Mechanical15) 
+Polygon (PointCount 4) (Layer Mechanical15) 
+Point (207, 541.4803009)
+Point (-207, 541.4803009)
+Point (-207, -246.5196991)
+Point (207, -246.5196991)
+EndPolygon
+Line (Width 6) (Start -202, -241.5196991) (End 202, -241.5196991) (Layer TopOverlay) 
+Line (Width 6) (Start 202, -241.5196991) (End 202, 162.4803009) (Layer TopOverlay) 
+Line (Width 6) (Start 202, 162.4803009) (End -202, 162.4803009) (Layer TopOverlay) 
+Line (Width 6) (Start -202, 162.4803009) (End -202, -241.5196991) (Layer TopOverlay) 
+Line (Width 6) (Start -168.5, 152.4803009) (End 168.5, 152.4803009) (Layer TopOverlay) 
+Line (Width 6) (Start 168.5, 152.4803009) (End 168.5, 536.4803009) (Layer TopOverlay) 
+Line (Width 6) (Start 168.5, 536.4803009) (End -168.5, 536.4803009) (Layer TopOverlay) 
+Line (Width 6) (Start -168.5, 536.4803009) (End -168.5, 152.4803009) (Layer TopOverlay) 
+Text (Location -112.5, -25) (Height 50) (Width 3) (Rotation 0) (Layer TopOverlay) (Value "*")
+Line (Width 1) (Start -197, -236.5196991) (End 197, -236.5196991) (Layer Mechanical13) 
+Line (Width 1) (Start 197, -236.5196991) (End 197, 157.4803009) (Layer Mechanical13) 
+Line (Width 1) (Start 197, 157.4803009) (End -197, 157.4803009) (Layer Mechanical13) 
+Line (Width 1) (Start -197, 157.4803009) (End -197, -236.5196991) (Layer Mechanical13) 
+Line (Width 1) (Start -163.5, 157.4803009) (End 163.5, 157.4803009) (Layer Mechanical13) 
+Line (Width 1) (Start 163.5, 157.4803009) (End 163.5, 531.4803009) (Layer Mechanical13) 
+Line (Width 1) (Start 163.5, 531.4803009) (End -163.5, 531.4803009) (Layer Mechanical13) 
+Line (Width 1) (Start -163.5, 531.4803009) (End -163.5, 157.4803009) (Layer Mechanical13) 
+Text (Location -112.5, -25) (Height 50) (Width 3) (Rotation 0) (Layer Mechanical13) (Value "*")
+Line (Width 47) (Start -20, 9E-07) (End 20, 9E-07) (Layer MultiLayer) 
+Line (Width 39) (Start 0, -197.1653991) (End 0, -157.1653991) (Layer MultiLayer) 
+EndFootprint
+EndFootprints
+
+StartComponents
+
+Component (Name "KLPX-0848A-2-B") (PartCount 1) (DesPrefix "J?")
+Pin (Location -300, 0) (Rotation 0) (PinType Passive) (Length 300) (Width 0) (Designator Visible "1") (Name Hidden "1") (PinSwap 0) (PartSwap 0) (PinSeq 1) (Part 1)
+Pin (Location -300, -300) (Rotation 0) (PinType Passive) (Length 300) (Width 0) (Designator Visible "2") (Name Hidden "2") (PinSwap 0) (PartSwap 0) (PinSeq 2) (Part 1)
+Line (Width 5) (Start -300, -300) (End -400, -300) (Part 1)
+Line (Width 5) (Start -400, -300) (End -450, -200) (Part 1)
+Line (Width 5) (Start -300, 0) (End -600, 0) (Part 1)
+Line (Width 5) (Start -450, -200) (End -500, -300) (Part 1)
+Line (Width 5) (Start -600, 0) (End -600, -50) (Part 1)
+Rectangle (Width 5) (Start -650, -250) (End -550, -50) (Part 1)
+Parameter (Name "Copyright") (Location 0, 0) (Height 50) (Rotation 0) (Justification Center) (Value "Copyright (C) 2023 Ultra Librarian. All rights reserved.") (Part 1)
+Parameter (Name "Mfr_Name") (Location 0, 0) (Height 50) (Rotation 0) (Justification Center) (Value "KYCON, INC.") (Part 1)
+Parameter (Name "Manufacturer_Part_Number") (Location 0, 0) (Height 50) (Rotation 0) (Justification Center) (Value "KLPX-0848A-2-B") (Part 1)
+Parameter (Name "RefDes") (Location -300, 300) (Height 82) (Rotation 0) (Justification Center) (Value "RefDes") (Part 1)
+Parameter (Name "Type") (Location -300, 200) (Height 82) (Rotation 0) (Justification Center) (Value "DEV") (Part 1)
+Description (Value "No Description Available") (Part 1)
+Comment (Value "KLPX-0848A-2-B") (Part 1)
+Footprint (Name "KLPX-0848A-2-B_KYC")
+EndComponent
+EndComponents
