@@ -1,4 +1,4 @@
-Record=TopLevelDocument|FileName=Connectors.SchDoc|SheetNumber=3
-Record=NoMainPathDocument|SourceDocument=Connectors.SchDoc|FileName=MCU.SchDoc|SheetNumber=2
-Record=NoMainPathDocument|SourceDocument=Connectors.SchDoc|FileName=Power.SchDoc|SheetNumber=4
-Record=NoMainPathDocument|SourceDocument=Connectors.SchDoc|FileName=Top.SchDoc|SheetNumber=1
+Record=TopLevelDocument|FileName=Top.SchDoc|SheetNumber=1
+Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=U_Connectivity|SchDesignator=U_Connectivity|FileName=Connectivity.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=Connectivity.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=U_MCU|SchDesignator=U_MCU|FileName=MCU.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=MCU.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top.SchDoc|Designator=U_Power|SchDesignator=U_Power|FileName=Power.SchDoc|SheetNumber=4|SymbolType=Normal|RawFileName=Power.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
