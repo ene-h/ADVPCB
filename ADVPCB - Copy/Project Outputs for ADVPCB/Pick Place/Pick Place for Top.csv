@@ -1,0 +1,58 @@
+Altium Designer Pick and Place Locations
+D:\ADVPCB\ADVPCB - Copy\Project Outputs for ADVPCB\Pick Place\Pick Place for Top.csv
+
+========================================================================================================================
+File Design Information:
+
+Date:       13/07/24
+Time:       12:46
+Revision:   540577cb428f444411d715c1120e657c4007cd5c
+Variant:    No variations
+Units used: mm
+
+"Designator","Comment","Layer","Footprint","Center-X(mm)","Center-Y(mm)","Rotation","Description"
+"FID5","Comment","TopLayer","FIDUCIAL-1MM","42.8155","28.7080","0",""
+"FID4","Comment","TopLayer","FIDUCIAL-1MM","56.1941","15.2656","0",""
+"FID3","Comment","TopLayer","FIDUCIAL-1MM","88.5000","4.0000","0",""
+"FID2","Comment","TopLayer","FIDUCIAL-1MM","88.5000","41.0000","0",""
+"FID1","Comment","TopLayer","FIDUCIAL-1MM","9.0000","41.0000","0",""
+"U2","NCP115ASN330T2G","TopLayer","SOT95P275X120-5N","31.5000","20.6450","90","No Description Available"
+"SB2","Solder Bridge","TopLayer","SOLDER_BRIDGE","42.5000","11.3750","90",""
+"SB1","Solder Bridge","TopLayer","SOLDER_BRIDGE","31.6250","25.5000","0",""
+"R9","Res1","TopLayer","J1-0603","24.0000","21.7500","270","Resistor"
+"R8","Res1","TopLayer","J1-0603","93.2500","8.5000","180","Resistor"
+"R7","Res1","TopLayer","J1-0603","39.0000","40.5000","0","Resistor"
+"R6","Res1","TopLayer","J1-0603","88.0000","27.5000","180","Resistor"
+"R5","Res1","TopLayer","J1-0603","88.0000","23.0000","180","Resistor"
+"R4","Res1","TopLayer","J1-0603","88.0000","18.5000","180","Resistor"
+"R3","Res1","TopLayer","J1-0603","8.5000","15.0000","90","Resistor"
+"R2","Res1","TopLayer","J1-0603","11.5000","15.0000","270","Resistor"
+"R1","Res1","TopLayer","J1-0603","16.0000","12.0000","180","Resistor"
+"J2","USB B Fem","TopLayer","UJ2BH1TH","29.7500","8.6450","0",""
+"Y1","X50328MSB2GI","TopLayer","RESC5032X135N","51.8500","33.5000","180","C115962"
+"U1","Inverter1","TopLayer","DBV5-M","16.0000","15.0000","0","C81934"
+"S1","TS-1187A-B-A-B_1","TopLayer","TS1187ABAB","38.0000","34.5000","270","C318884"
+"P3","Header I2C","TopLayer","HDR1X4","91.7700","35.5000","180","Header, 4-Pin"
+"P2","Header DBG","TopLayer","HDR1X7","70.4200","35.5000","180","Header, 7-Pin"
+"P1","HDR_CLR_BTN","TopLayer","HDR1X2","93.7300","13.5000","0","Header, 2-Pin"
+"MCU","STM32F446RCT6","TopLayer","STM-LQFP64_L","49.5000","22.0000","270","ARM Cortex-M4 32-bit MCU+FPU, 256 KB Flash, 128 KB Internal RAM, 50 I/Os, 64-Pin LQFP, -40 to 85 degC, Tray"
+"LED_Y","fucking led maat hoe moeilijk ist kutprogram","TopLayer","LED_SSL-LX4673GD-LA20","93.7300","22.0000","0",""
+"LED_R","fucking led maat hoe moeilijk ist kutprogram","TopLayer","LED_SSL-LX4673GD-LA20","93.7300","26.5000","0",""
+"PWR","C2286","TopLayer","LEDC1608X70N","26.0000","21.7500","270",""
+"LED_G","fucking led maat hoe moeilijk ist kutprogram","TopLayer","LED_SSL-LX4673GD-LA20","93.7300","17.5000","0",""
+"J1","RCA","TopLayer","KLPX0848A2B","13.5000","6.7500","90","No Description Available"
+"C15","C52923","TopLayer","J1-0603","31.5000","23.5000","180","Capacitor"
+"C14","C52923","TopLayer","J1-0603","31.0000","18.0000","180","Capacitor"
+"C13","C1525","TopLayer","0402","93.0000","10.5000","180","Capacitor"
+"C12","C1525","TopLayer","0402","39.0000","39.0000","0","Capacitor"
+"C11","C1538","TopLayer","0402","10.0000","15.0000","90","Capacitor"
+"C10","Cap","TopLayer","J1-0603","41.5000","19.5000","180","Capacitor"
+"C9","C1525","TopLayer","0402","47.0000","29.5000","180","Capacitor"
+"C8","Cap","TopLayer","0402","50.0000","31.0000","0","Capacitor"
+"C7","Cap","TopLayer","0402","53.0000","31.0000","180","Capacitor"
+"C6","C1525","TopLayer","0402","41.5000","25.0000","270","Capacitor"
+"C5","Cap","TopLayer","J1-0603","40.5000","25.0000","270","Capacitor"
+"C4","C1525","TopLayer","0402","57.0000","25.5000","90","Capacitor"
+"C3","C1525","TopLayer","0402","53.0000","14.0000","0","Capacitor"
+"C2","C1525","TopLayer","0402","42.0000","18.0000","270","Capacitor"
+"C1","Cap","TopLayer","J1-0603","46.7500","30.5000","180","Capacitor"
