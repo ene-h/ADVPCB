@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=VCC Pin=C15-2
+Added Pin To Net: NetName=VCC Pin=SB1-2
+Added Pin To Net: NetName=NetC15_2 Pin=C15-2
+Added Pin To Net: NetName=NetC15_2 Pin=SB1-1
+Added Pin To Net: NetName=NetC15_2 Pin=U2-5
+Added Net: Name=NetC15_2
+Added Room: Name=U_Connectivity
+Added Room: Name=U_MCU
+Added Room: Name=U_Power
+PCB-ECO: Change Pad Pin/Pkg Length: Old=1.6mm New=0mm
+PCB-ECO: Change Pad Pin/Pkg Length: Old=1.6mm New=0mm
+PCB-ECO: Change Pad Pin/Pkg Length: Old=1.6mm New=0mm
+PCB-ECO: Change Pad Pin/Pkg Length: Old=1.6mm New=0mm

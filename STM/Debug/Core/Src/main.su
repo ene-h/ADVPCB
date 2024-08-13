@@ -1,0 +1,10 @@
+../Core/Src/main.c:97:6:HAL_SPDIFRX_RxCpltCallback	48	static
+../Core/Src/main.c:146:5:main	88	static
+../Core/Src/main.c:215:6:SystemClock_Config	88	static
+../Core/Src/main.c:259:13:MX_I2C3_Init	8	static
+../Core/Src/main.c:291:13:MX_SPDIFRX_Init	8	static
+../Core/Src/main.c:325:13:MX_USART6_UART_Init	8	static
+../Core/Src/main.c:356:13:MX_USB_OTG_FS_PCD_Init	8	static
+../Core/Src/main.c:387:13:MX_DMA_Init	16	static
+../Core/Src/main.c:404:13:MX_GPIO_Init	48	static
+../Core/Src/main.c:439:6:Error_Handler	4	static,ignoring_inline_asm

@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=VCC Pin=MCU-1
+Added Pin To Net: NetName=NetC1_2 Pin=MCU-1

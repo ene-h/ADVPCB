@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=+5 Pin=P3-1
+Removed Pin From Net: NetName=NetMCU_40 Pin=P3-2
+Removed Pin From Net: NetName=NetMCU_41 Pin=P3-3
+Removed Pin From Net: NetName=GND Pin=P3-4
+Added Pin To Net: NetName=GND Pin=P3-1
+Added Pin To Net: NetName=+5 Pin=P3-2
+Added Pin To Net: NetName=NetMCU_40 Pin=P3-3
+Added Pin To Net: NetName=NetMCU_41 Pin=P3-4
+Added Room: Name=U_Connectivity
+Added Room: Name=U_MCU
+Added Room: Name=U_Power
