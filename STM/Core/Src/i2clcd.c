@@ -118,13 +118,13 @@ void lcd_send_string(const char *str)
 				default:
 					break;
 				}
-				*str++;
+				(void)*str++;
 				is_cmd = false;
 				continue;
 			}
 			if ((*str) == rep)
 			{
-				*str++;
+				(void)*str++;
 				is_cmd = true;
 				continue;
 			}

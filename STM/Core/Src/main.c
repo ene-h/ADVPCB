@@ -37,7 +37,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define PROC_BLOCK_SZ 4410
+#define PROC_BLOCK_SZ 13230
 #define BLK_AMOUNT 1
 #define SILENCE -70
 #define IGNORE_OFFSET 10
@@ -57,9 +57,8 @@ DMA_HandleTypeDef hdma_spdif_rx_dt;
 
 UART_HandleTypeDef huart6;
 
-PCD_HandleTypeDef hpcd_USB_OTG_FS;
-
 /* USER CODE BEGIN PV */
+
 const uint8_t MlcdPos[4][20] = { { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06,
 		0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12,
 		0x13 }, { 0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49,
@@ -69,7 +68,7 @@ const uint8_t MlcdPos[4][20] = { { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06,
 		0x58, 0x59, 0x5A, 0x5B, 0x5C, 0x5D, 0x5E, 0x5F, 0x60, 0x61, 0x62, 0x63,
 		0x64, 0x65, 0x66, 0x67 } };
 
-uint32_t buffer[2][PROC_BLOCK_SZ * BLK_AMOUNT] = { 0 };
+int32_t buffer[2][PROC_BLOCK_SZ * BLK_AMOUNT] = { 0 };
 uint8_t bufferIndex = 0;
 uint32_t maxPeakSample = 0;
 float maxPeak = 0;
@@ -78,6 +77,7 @@ float momentary = 0;
 float maxMomentary = 0;
 float integrated = 0;
 uint32_t bufferCtr = 0;
+uint32_t test = 0;
 
 char dB0[32];
 char dB1[32];
@@ -93,49 +93,80 @@ static void MX_DMA_Init(void);
 static void MX_I2C3_Init(void);
 static void MX_USART6_UART_Init(void);
 static void MX_SPDIFRX_Init(void);
-static void MX_USB_OTG_FS_PCD_Init(void);
 /* USER CODE BEGIN PFP */
-void HAL_SPDIFRX_RxCpltCallback(SPDIFRX_HandleTypeDef *hspdif) {
+/*void HAL_SPDIFRX_RxCpltCallback(SPDIFRX_HandleTypeDef *hspdif) {
+ HAL_Delay(50);
+ //snprintf(dB3,20,"%u",test);
+ //lcd_write(dB3, 0, 0);
+ for (int i = 0; i < 20; ++i) {
+ HAL_GPIO_TogglePin(LED_G_GPIO_Port, LED_G_Pin);
+ HAL_Delay(2000);
+ }
+ return;
+ }*/
+
+//void HAL_SPDIFRX_RxCpltCallback(SPDIFRX_HandleTypeDef *hspdif) {
+//	uint32_t oldBuff = bufferIndex; //net gelezen buffernummer opslaan
+//	bufferIndex = 1 - bufferIndex; //wordt 1 als 0 is en vice versa
+//	uint32_t buffsize = PROC_BLOCK_SZ * BLK_AMOUNT;
+//
+//	//berekeningen maken op net gelezen buffer
+//	bufferCtr++;
+//	static uint32_t square = 0;
+//	static uint32_t accumulated_squares = 0;
+//	static int32_t currentSample;
+//	for (int i = 0; i < (buffsize); ++i) {
+//		//currentSample = ((buffer[oldBuff][i] & 0xFFFF)
+//			//	+ ((buffer[oldBuff][i] & 0xFFFF0000) >> 16) / 2);
+//		currentSample = buffer[oldBuff][i];
+//		if (currentSample <= 32766 || currentSample >= -32767) {
+//			overs++;
+//		}
+//		if (abs(currentSample) > maxPeakSample) {
+//			maxPeakSample = currentSample;
+//			maxPeak = (float) (20 * log10((abs(currentSample) / 32768)));
+//		}
+//
+//		square += currentSample * currentSample;
+//	}
+//	//if (!(bufferCtr % 3)) {
+//		float RMS = sqrt(((float) square) / ((float) (buffsize))); //SQRT van de mean van de som vd squares => RMS
+//		//accumulated_squares = square; //100ms overlap
+//		square = 0;
+//		float dBRMS = 20 * log10(RMS / 32768); //omzetten naar decibels
+//		momentary = dBRMS;
+//		if (momentary > maxMomentary) {
+//			maxMomentary = momentary;
+//		}
+//		integrated = (((((bufferCtr / 3) - 1) * integrated) + dBRMS)
+//				/ (bufferCtr / 3)); //cumulatief gemiddelde
+//	/*} else {
+//		accumulated_squares += square;
+//		square = 0;
+//	}*/
+//	return;
+//}
+void HAL_SPDIFRX_RxCpltCallback(SPDIFRX_HandleTypeDef *hspdif) { //callback volle SPDIF buffer
 	uint32_t oldBuff = bufferIndex; //net gelezen buffernummer opslaan
 	bufferIndex = 1 - bufferIndex; //wordt 1 als 0 is en vice versa
 	uint32_t buffsize = PROC_BLOCK_SZ * BLK_AMOUNT;
-
-	HAL_SPDIFRX_ReceiveDataFlow_DMA(hspdif, (uint32_t*) buffer[bufferIndex],
-			sizeof(buffer[0])); //verder data lezen naar andere buffer
-
-	//berekeningen maken op net gelezen buffer
-	bufferCtr++;
-	static uint32_t square = 0;
-	static uint32_t accumulated_squares = 0;
-	for (int i = 0; i < (buffsize); ++i) {
-		int32_t currentSample = ((buffer[oldBuff][i] & 0xFFFF)
-				+ ((buffer[oldBuff][i] & 0xFFFF0000) >> 16) / 2);
-		if (currentSample <= 32766 || currentSample >= -32767) {
-			overs++;
-		}
-		if (abs(currentSample) > maxPeakSample) {
-			maxPeakSample = currentSample;
-			maxPeak = (float) (20 * log10((abs(currentSample) / 32768)));
-		}
-
+	float currentSample = 0;
+	float square;
+	HAL_SPDIFRX_ReceiveDataFlow_IT(hspdif, (uint32_t*) &buffer[bufferIndex][0],
+	PROC_BLOCK_SZ); //verder data lezen naar andere buffer
+	for (int j = 0; j < PROC_BLOCK_SZ; ++j) {
+		currentSample = (int16_t)(buffer[oldBuff][j] >>16);
 		square += currentSample * currentSample;
+
 	}
-	if (!(bufferCtr % 3)) {
-		float RMS = sqrt(((float) accumulated_squares) / ((float) (buffsize))); //SQRT van de mean van de som vd squares => RMS
-		accumulated_squares = square; //100ms overlap
-		square = 0;
-		float dBRMS = 20 * log10(RMS / 32768); //omzetten naar decibels
-		momentary = dBRMS;
-		if (momentary > maxMomentary) {
-			maxMomentary = momentary;
-		}
-		integrated = (((((bufferCtr/3) - 1) * integrated) + dBRMS) / (bufferCtr/3)); //cumulatief gemiddelde
-	} else {
-		accumulated_squares += square;
-		square = 0;
-	}
+	float RMS = sqrt(((float) square) / ((float) (buffsize))); //SQRT van de mean van de som vd squares => RMS
+	square = 0;
+	float dBRMS = 20 * log10(RMS / 32768); //omzetten naar decibels
+	momentary = dBRMS;
+	bufferCtr++;
 	return;
 }
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -175,21 +206,21 @@ int main(void)
   MX_I2C3_Init();
   MX_USART6_UART_Init();
   MX_SPDIFRX_Init();
-  MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
-	char dB0_Blank[] = "Momentary:     ";
-	char dB1_Blank[] = "Short Term:    ";
-	char dB2_Blank[] = "Integrated:    ";
-	char dB3_Blank[] = "Overs:         ";
+
+	char dB0_Blank[] = "Momentary:    ";
+	char dB1_Blank[] = "Short Term:   ";
+	char dB2_Blank[] = "Integrated:   ";
+	char dB3_Blank[] = "Overs: ";
 
 	lcd16x2_i2c_proxy_initialize(&hi2c3, 0, 0);
 	lcd16x2_i2c_proxy_turnDisplayOn();
-	lcd_write(dB0, 0, 0);
-	lcd_write(dB1, 1, 0);
-	lcd_write(dB2, 2, 0);
-	lcd_write(dB3, 3, 0);
+	lcd_write(dB0_Blank, 0, 0);
+	lcd_write(dB1_Blank, 1, 0);
+	lcd_write(dB2_Blank, 2, 0);
+	lcd_write(dB3_Blank, 3, 0);
 
-	HAL_SPDIFRX_ReceiveDataFlow_DMA(&hspdif, buffer[0], sizeof(buffer[0]));
+	HAL_SPDIFRX_ReceiveDataFlow_IT(&hspdif, (uint32_t*)&buffer[0][0], PROC_BLOCK_SZ);
 
   /* USER CODE END 2 */
 
@@ -199,26 +230,27 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
+		//calcul();
+		//HAL_SPDIFRX_ReceiveDataFlow_IT(&hspdif, buffer[bufferIndex],1); //verder data lezen naar andere buffer
 		snprintf(dB0, 20, "%s%3.1f", dB0_Blank, momentary);
 		snprintf(dB1, 20, "%s%3.1f", dB1_Blank, maxMomentary);
 		snprintf(dB2, 20, "%s%3.1f", dB2_Blank, integrated);
-		snprintf(dB3, 20, "%s%04lu", dB3_Blank, overs);
+		snprintf(dB3, 20, "%s%d", dB3_Blank, (int16_t)((buffer[0][0])>>16));
 		lcd_write(dB0, 0, 0);
-		lcd_write(dB1, 1, 0);
-		lcd_write(dB2, 2, 0);
+		//lcd_write(dB1, 1, 0);
+		//lcd_write(dB2, 2, 0);
 		lcd_write(dB3, 3, 0);
-
-		if (!HAL_GPIO_ReadPin(Btn_GPIO_Port, Btn_Pin)) {
-			maxPeakSample = 0;
-			maxPeak = 0;
-			overs = 0;
-			momentary = 0;
-			maxMomentary = 0;
-			integrated = 0;
-			bufferCtr = 0;
-		}
-
+		HAL_Delay(200);
+		/*if (!HAL_GPIO_ReadPin(Btn_GPIO_Port, Btn_Pin)) {
+		 maxPeakSample = 0;
+		 maxPeak = 0;
+		 overs = 0;
+		 momentary = 0;
+		 maxMomentary = 0;
+		 integrated = 0;
+		 bufferCtr = 0;
+		 }*/
+		//HAL_GPIO_TogglePin(LED_G_GPIO_Port, LED_G_Pin);
 	}
   /* USER CODE END 3 */
 }
@@ -321,10 +353,10 @@ static void MX_SPDIFRX_Init(void)
   hspdif.Instance = SPDIFRX;
   hspdif.Init.InputSelection = SPDIFRX_INPUT_IN2;
   hspdif.Init.Retries = SPDIFRX_MAXRETRIES_15;
-  hspdif.Init.WaitForActivity = SPDIFRX_WAITFORACTIVITY_ON;
+  hspdif.Init.WaitForActivity = SPDIFRX_WAITFORACTIVITY_OFF;
   hspdif.Init.ChannelSelection = SPDIFRX_CHANNEL_A;
-  hspdif.Init.DataFormat = SPDIFRX_DATAFORMAT_32BITS;
-  hspdif.Init.StereoMode = SPDIFRX_STEREOMODE_ENABLE;
+  hspdif.Init.DataFormat = SPDIFRX_DATAFORMAT_MSB;
+  hspdif.Init.StereoMode = SPDIFRX_STEREOMODE_DISABLE;
   hspdif.Init.PreambleTypeMask = SPDIFRX_PREAMBLETYPEMASK_ON;
   hspdif.Init.ChannelStatusMask = SPDIFRX_CHANNELSTATUS_ON;
   hspdif.Init.ValidityBitMask = SPDIFRX_VALIDITYMASK_ON;
@@ -369,41 +401,6 @@ static void MX_USART6_UART_Init(void)
   /* USER CODE BEGIN USART6_Init 2 */
 
   /* USER CODE END USART6_Init 2 */
-
-}
-
-/**
-  * @brief USB_OTG_FS Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_USB_OTG_FS_PCD_Init(void)
-{
-
-  /* USER CODE BEGIN USB_OTG_FS_Init 0 */
-
-  /* USER CODE END USB_OTG_FS_Init 0 */
-
-  /* USER CODE BEGIN USB_OTG_FS_Init 1 */
-
-  /* USER CODE END USB_OTG_FS_Init 1 */
-  hpcd_USB_OTG_FS.Instance = USB_OTG_FS;
-  hpcd_USB_OTG_FS.Init.dev_endpoints = 6;
-  hpcd_USB_OTG_FS.Init.speed = PCD_SPEED_FULL;
-  hpcd_USB_OTG_FS.Init.dma_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.phy_itface = PCD_PHY_EMBEDDED;
-  hpcd_USB_OTG_FS.Init.Sof_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.low_power_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.lpm_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.vbus_sensing_enable = DISABLE;
-  hpcd_USB_OTG_FS.Init.use_dedicated_ep1 = DISABLE;
-  if (HAL_PCD_Init(&hpcd_USB_OTG_FS) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN USB_OTG_FS_Init 2 */
-
-  /* USER CODE END USB_OTG_FS_Init 2 */
 
 }
 

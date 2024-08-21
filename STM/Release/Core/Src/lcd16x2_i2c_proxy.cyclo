@@ -1,0 +1,15 @@
+../Core/Src/lcd16x2_i2c_proxy.c:60:16:lcd16x2_i2c_proxy_sendCommandNibble	1
+../Core/Src/lcd16x2_i2c_proxy.c:83:16:lcd16x2_i2c_proxy_sendCommand	1
+../Core/Src/lcd16x2_i2c_proxy.c:109:16:lcd16x2_i2c_proxy_sendData	1
+../Core/Src/lcd16x2_i2c_proxy.c:137:9:lcd16x2_i2c_proxy_initialize	2
+../Core/Src/lcd16x2_i2c_proxy.c:182:9:lcd16x2_i2c_proxy_turnDisplayOn	1
+../Core/Src/lcd16x2_i2c_proxy.c:194:9:lcd16x2_i2c_proxy_turnDisplayOff	1
+../Core/Src/lcd16x2_i2c_proxy.c:204:9:lcd16x2_i2c_proxy_setCursor	1
+../Core/Src/lcd16x2_i2c_proxy.c:219:9:lcd16x2_i2c_proxy_setCursorHome	1
+../Core/Src/lcd16x2_i2c_proxy.c:230:9:lcd16x2_i2c_proxy_setCursorPosition	3
+../Core/Src/lcd16x2_i2c_proxy.c:243:9:lcd16x2_i2c_proxy_clear	1
+../Core/Src/lcd16x2_i2c_proxy.c:253:9:lcd16x2_i2c_proxy_scrollRight	2
+../Core/Src/lcd16x2_i2c_proxy.c:268:9:lcd16x2_i2c_proxy_scrollLeft	2
+../Core/Src/lcd16x2_i2c_proxy.c:283:9:lcd16x2_i2c_proxy_printc	1
+../Core/Src/lcd16x2_i2c_proxy.c:296:9:lcd16x2_i2c_proxy_printf	5
+../Core/Src/lcd16x2_i2c_proxy.c:328:9:printToRow	5
